@@ -1,0 +1,5 @@
+*.coverprofile
+*.log
+tempWMICout.txt
+*.exe
+*.csv
