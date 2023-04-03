@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,13 +22,13 @@ import (
 	"sync"
 	"time"
 
-	executiontimer "github.wdf.sap.corp/I554249/sensor/execution_timer"
-	"github.wdf.sap.corp/I554249/sensor/formatter"
-	"github.wdf.sap.corp/I554249/sensor/logger"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
-	"github.wdf.sap.corp/I554249/sensor/system_info/sensors"
-	sensorsfactory "github.wdf.sap.corp/I554249/sensor/system_info/sensors_factory"
-	"github.wdf.sap.corp/I554249/sensor/writer"
+	executiontimer "github.com/altnum/sensorapp/execution_timer"
+	"github.com/altnum/sensorapp/formatter"
+	"github.com/altnum/sensorapp/logger"
+	systeminfo "github.com/altnum/sensorapp/system_info"
+	"github.com/altnum/sensorapp/system_info/sensors"
+	sensorsfactory "github.com/altnum/sensorapp/system_info/sensors_factory"
+	"github.com/altnum/sensorapp/writer"
 
 	"github.com/spf13/cobra"
 
@@ -145,7 +145,7 @@ func executeProgram(cmd *cobra.Command, systemSensor []sensors.SystemSensor,
 	}
 }
 
-//Take the measurements, according to cmd.Flags() values and returns the output in the proper format.
+// Take the measurements, according to cmd.Flags() values and returns the output in the proper format.
 func getSystemInfo(cmd *cobra.Command, sensors []sensors.SystemSensor) ([]systeminfo.Measurement, error) {
 	measurements := make([]systeminfo.Measurement, 0)
 

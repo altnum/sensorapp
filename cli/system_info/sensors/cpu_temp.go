@@ -11,7 +11,7 @@ import (
 
 	"github.com/elastic/go-sysinfo"
 
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 )
 
 type CpuTempSensor struct {

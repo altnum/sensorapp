@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/altnum/sensorapp/models"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"github.wdf.sap.corp/I554249/sensor/models"
 )
 
 const (

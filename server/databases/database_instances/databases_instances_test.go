@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/altnum/sensorapp/models"
 	"github.com/jmoiron/sqlx"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.wdf.sap.corp/I554249/sensor/models"
 )
 
 var _ = Describe("Testing different databases", func() {

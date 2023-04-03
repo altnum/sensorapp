@@ -3,7 +3,7 @@ package databases
 import (
 	"context"
 
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
+	. "github.com/altnum/sensorapp/databases/database_instances"
 )
 
 var dbs []IDB

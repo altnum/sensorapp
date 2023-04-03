@@ -8,8 +8,8 @@ import (
 	"os"
 	"sync"
 
-	"github.wdf.sap.corp/I554249/sensor/logger"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	"github.com/altnum/sensorapp/logger"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 )
 
 var printToConsole = fmt.Println

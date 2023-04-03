@@ -3,16 +3,16 @@ package cmd
 import (
 	"errors"
 
+	timerMocks "github.com/altnum/sensorapp/execution_timer/mocks"
+	formatMocks "github.com/altnum/sensorapp/formatter/mocks"
+	systeminfo "github.com/altnum/sensorapp/system_info"
+	"github.com/altnum/sensorapp/system_info/sensors"
+	writerMocks "github.com/altnum/sensorapp/writer/mocks"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	timerMocks "github.wdf.sap.corp/I554249/sensor/execution_timer/mocks"
-	formatMocks "github.wdf.sap.corp/I554249/sensor/formatter/mocks"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
-	"github.wdf.sap.corp/I554249/sensor/system_info/sensors"
-	writerMocks "github.wdf.sap.corp/I554249/sensor/writer/mocks"
 
-	sensorsMocks "github.wdf.sap.corp/I554249/sensor/system_info/sensors/mocks"
-	sensorFactoryMocks "github.wdf.sap.corp/I554249/sensor/system_info/sensors_factory/mocks"
+	sensorsMocks "github.com/altnum/sensorapp/system_info/sensors/mocks"
+	sensorFactoryMocks "github.com/altnum/sensorapp/system_info/sensors_factory/mocks"
 )
 
 var _ = Describe("Testing the main calls and functionalities", func() {

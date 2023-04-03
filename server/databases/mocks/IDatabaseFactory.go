@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	database_instances "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
+	database_instances "github.com/altnum/sensorapp/databases/database_instances"
 
 	mock "github.com/stretchr/testify/mock"
 )

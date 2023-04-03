@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strings"
 
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	"github.com/spf13/cobra"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
 	"gopkg.in/yaml.v2"
 )
 
@@ -30,7 +30,7 @@ func getFlagValueString(cmd *cobra.Command, flag string) (string, error) {
 	return flag, nil
 }
 
-//Format the output in either JSON or YAML format.
+// Format the output in either JSON or YAML format.
 func (f *Formatter) FormatOutput(cmd *cobra.Command, measurement systeminfo.Measurement) (outputStr string, err error) {
 	formatF, err := getFlagValue(cmd, "format")
 	if err != nil {

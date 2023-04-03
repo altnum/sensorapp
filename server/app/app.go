@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"reflect"
 
+	"github.com/altnum/sensorapp/databases"
+	"github.com/altnum/sensorapp/databases/database_instances"
+	. "github.com/altnum/sensorapp/databases/database_instances"
+	"github.com/altnum/sensorapp/routes"
+	"github.com/altnum/sensorapp/services"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
-	"github.wdf.sap.corp/I554249/sensor/databases"
-	"github.wdf.sap.corp/I554249/sensor/databases/database_instances"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
-	"github.wdf.sap.corp/I554249/sensor/routes"
-	"github.wdf.sap.corp/I554249/sensor/services"
 )
 
 var startServer = http.ListenAndServe

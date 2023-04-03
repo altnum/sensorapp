@@ -3,8 +3,8 @@ package routes
 import (
 	"reflect"
 
+	"github.com/altnum/sensorapp/services"
 	"github.com/gorilla/mux"
-	"github.wdf.sap.corp/I554249/sensor/services"
 )
 
 type IRouteLoader interface {

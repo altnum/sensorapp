@@ -5,14 +5,14 @@ import (
 	"errors"
 	"net/http"
 
+	. "github.com/altnum/sensorapp/databases/database_instances"
+	mocksIDB "github.com/altnum/sensorapp/databases/database_instances/mocks"
+	"github.com/altnum/sensorapp/databases/mocks"
+	"github.com/altnum/sensorapp/services"
+	mocksServiceFactory "github.com/altnum/sensorapp/services/mocks"
 	"github.com/gorilla/mux"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
-	mocksIDB "github.wdf.sap.corp/I554249/sensor/databases/database_instances/mocks"
-	"github.wdf.sap.corp/I554249/sensor/databases/mocks"
-	"github.wdf.sap.corp/I554249/sensor/services"
-	mocksServiceFactory "github.wdf.sap.corp/I554249/sensor/services/mocks"
 )
 
 var _ = Describe("Testing initial app methods", func() {

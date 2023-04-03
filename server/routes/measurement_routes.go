@@ -1,8 +1,8 @@
 package routes
 
 import (
+	"github.com/altnum/sensorapp/services"
 	"github.com/gorilla/mux"
-	"github.wdf.sap.corp/I554249/sensor/services"
 )
 
 func MeasurementRoutesInit(router *mux.Router, service services.IService) {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	"github.com/shirou/gopsutil/cpu"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
 )
 
 type CpuUsageSensor struct {

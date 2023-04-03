@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/altnum/sensorapp/models"
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	"github.com/influxdata/influxdb-client-go/v2/api"
-	"github.wdf.sap.corp/I554249/sensor/models"
 	"gonum.org/v1/gonum/stat"
 )
 

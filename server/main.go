@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.wdf.sap.corp/I554249/sensor/app"
+	"github.com/altnum/sensorapp/app"
 )
 
 func main() {

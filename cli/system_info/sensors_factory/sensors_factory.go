@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"regexp"
 
+	systeminfo "github.com/altnum/sensorapp/system_info"
+	"github.com/altnum/sensorapp/system_info/sensors"
 	"github.com/spf13/cobra"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
-	"github.wdf.sap.corp/I554249/sensor/system_info/sensors"
 	"gopkg.in/yaml.v2"
 )
 

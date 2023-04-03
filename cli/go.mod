@@ -1,4 +1,4 @@
-module github.wdf.sap.corp/I554249/sensor
+module github.com/altnum/sensorapp
 
 go 1.15
 

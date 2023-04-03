@@ -3,10 +3,10 @@ package formatter
 import (
 	"errors"
 
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/cobra"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
 )
 
 var _ = Describe("Testing formatter package", func() {

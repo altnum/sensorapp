@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	"github.com/altnum/sensorapp/databases/database_instances/mocks"
+	"github.com/altnum/sensorapp/models"
 	"github.com/gorilla/mux"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.wdf.sap.corp/I554249/sensor/databases/database_instances/mocks"
-	"github.wdf.sap.corp/I554249/sensor/models"
 )
 
 var _ = Describe("Testing different services functionality", func() {

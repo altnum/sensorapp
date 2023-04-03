@@ -13,7 +13,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 )
 
 var _ = Describe("Testing writer package", func() {

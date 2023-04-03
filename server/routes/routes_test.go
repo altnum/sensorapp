@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	. "github.com/altnum/sensorapp/databases/database_instances"
+	"github.com/altnum/sensorapp/services"
 	"github.com/gorilla/mux"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
-	"github.wdf.sap.corp/I554249/sensor/services"
 )
 
 var _ = Describe("Testing routes addresses", func() {

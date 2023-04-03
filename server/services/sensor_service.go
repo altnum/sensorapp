@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
+	. "github.com/altnum/sensorapp/databases/database_instances"
 	"github.com/gorilla/mux"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
 )
 
 type SensorService struct {

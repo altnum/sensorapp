@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
+	. "github.com/altnum/sensorapp/databases/database_instances"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
 )
 
 var writeResponse = OutputResponse

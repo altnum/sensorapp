@@ -4,7 +4,7 @@ import (
 	"errors"
 	"runtime"
 
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 )
 
 var getCoreNum = runtime.NumCPU

@@ -13,7 +13,7 @@ import (
 	"github.com/elastic/go-sysinfo"
 	. "github.com/heucuva/go-win32"
 
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	"golang.org/x/sys/windows"
 )
 

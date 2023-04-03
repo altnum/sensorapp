@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
+	. "github.com/altnum/sensorapp/databases/database_instances"
+	mocksDatabase "github.com/altnum/sensorapp/databases/database_instances/mocks"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	. "github.wdf.sap.corp/I554249/sensor/databases/database_instances"
-	mocksDatabase "github.wdf.sap.corp/I554249/sensor/databases/database_instances/mocks"
 )
 
 var _ = Describe("Databases functionality", func() {

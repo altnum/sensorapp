@@ -6,7 +6,7 @@ import (
 
 	"github.com/dterei/gotsc"
 
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 )
 
 type CpuFrequencySensor struct {

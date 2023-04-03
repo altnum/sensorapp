@@ -4,9 +4,9 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/altnum/sensorapp/logger"
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	"github.com/shirou/gopsutil/host"
-	"github.wdf.sap.corp/I554249/sensor/logger"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
 )
 
 var systemSensorsInfo = host.SensorsTemperatures

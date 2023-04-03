@@ -3,8 +3,8 @@ package sensors
 import (
 	"errors"
 
+	systeminfo "github.com/altnum/sensorapp/system_info"
 	"github.com/pbnjay/memory"
-	systeminfo "github.wdf.sap.corp/I554249/sensor/system_info"
 )
 
 type MemUsedSensor struct {
