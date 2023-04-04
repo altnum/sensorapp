@@ -11,8 +11,6 @@ github.com/fsnotify/fsnotify
 # github.com/gorilla/mux v1.8.0
 ## explicit; go 1.12
 github.com/gorilla/mux
-# github.com/influxdata/influxdb v1.9.5
-## explicit; go 1.15
 # github.com/influxdata/influxdb-client-go/v2 v2.5.1
 ## explicit; go 1.13
 github.com/influxdata/influxdb-client-go/v2

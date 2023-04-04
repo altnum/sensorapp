@@ -1,6 +1,6 @@
-module github.wdf.sap.corp/I554249/sensor
+module github.com/altnum/sensorapp
 
-go 1.17
+go 1.20
 
 require (
 	github.com/gorilla/mux v1.8.0
@@ -24,7 +24,6 @@ require (
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
-	github.com/influxdata/influxdb v1.9.5 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
