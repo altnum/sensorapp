@@ -111,7 +111,7 @@ func (i *InfluxDB) GetMeasuresFromQuery(context context.Context, query string) (
 	}
 
 	if len(measures) == 0 {
-		return nil, errors.New("No such measurements with the specified creiteria.")
+		return nil, errors.New("No such measurements with the specified criteria.")
 	}
 
 	return measures, nil
