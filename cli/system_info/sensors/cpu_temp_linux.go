@@ -22,7 +22,6 @@ type CpuTempSensor struct {
 
 func (c *CpuTempSensor) StartMeasurement(unitF string) (systeminfo.Measurement, error) {
 	infoLogger.Println("Starting temperature measurements")
-	// runWMICProcessElevatedMethod = c.runWMICProcessElevated
 
 	err := c.SetTemperatureUnit(unitF)
 	if err != nil {
@@ -61,21 +60,11 @@ func (c *CpuTempSensor) SetTemperatureValue() error {
 	if platformTypeStr != "windows" {
 		err = c.getCPUTemperature()
 		if err != nil {
-			warningLogger.Println("Running an external wmic process.")
-
-			// err := runWMICProcessElevatedMethod()
-			// if err != nil {
-			// 	return err
-			// }
-
-			return nil
+			return err
 		}
-
-		return nil
 	}
 
 	return nil
-	// return runWMICProcessElevatedMethod()
 }
 
 func (c *CpuTempSensor) SetTemperatureUnit(unitF string) error {
@@ -124,56 +113,6 @@ func (c *CpuTempSensor) getCPUTemperature() error {
 
 	return nil
 }
-
-// Running the wmic process externally with administrator rights and returning the CPU temp in Celsius.
-// func (c *CpuTempSensor) runWMICProcessElevated() error {
-// 	infoLogger.Println("Running WMIC process")
-
-// 	verb := "runas"
-// 	cwd, err := Getwd()
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	outputFileDest := cwd + "\\tempWMICout.txt"
-
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	verbPtr, err := syscall.UTF16PtrFromString(verb)
-// 	if err != nil {
-// 		return err
-// 	}
-// 	exePtr, err := syscall.UTF16PtrFromString("cmd.exe")
-// 	if err != nil {
-// 		return err
-// 	}
-// 	cwdPtr, err := syscall.UTF16PtrFromString(cwd)
-// 	if err != nil {
-// 		return err
-// 	}
-// 	argPtr, err := syscall.UTF16PtrFromString("/c wmic /namespace:\\\\root\\wmi PATH MSAcpi_ThermalZoneTemperature get CurrentTemperature > " + outputFileDest)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	handle, err := syscall.GetCurrentProcess()
-
-// 	err = windows.ShellExecute(windows.Handle(handle), verbPtr, exePtr, argPtr, cwdPtr, 1)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	err = WaitForSingleObject(windows.Handle(handle), syscall.INFINITE)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	c.readTempFromFile(outputFileDest)
-
-// 	return nil
-// }
 
 func (c *CpuTempSensor) readTempFromFile(fileDest string) error {
 	outputFileInfo, err := ioutil.ReadFile(fileDest)
