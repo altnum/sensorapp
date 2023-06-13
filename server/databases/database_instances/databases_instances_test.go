@@ -331,7 +331,7 @@ var _ = Describe("Testing different databases", func() {
 			It("given invalid id when querying measurement by id then return empty slice", func() {
 				measures, err := influxdb.GetMeasurementById(context, "-3")
 
-				Expect(err).To(BeNil())
+				Expect(err.Error()).To(BeEquivalentTo("No such measurements with the specified criteria."))
 				Expect(measures).To(BeEmpty())
 			})
 			It("given correct id when querying measurement by id then return nil", func() {

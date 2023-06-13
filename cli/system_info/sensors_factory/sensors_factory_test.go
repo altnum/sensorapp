@@ -32,7 +32,7 @@ var _ = Describe("SensorsFactory functionality", func() {
 			Expect(sensors).To(BeNil())
 		})
 		It("given correct input when using sensor_group command, then return slice of sensors", func() {
-			yamlFile = "testData\\test.yaml"
+			yamlFile = "testData/test.yaml"
 			getFlagValue = func(cmd *cobra.Command, flag string) (string, error) {
 				return "CPU_TEMP,MEMORY_USAGE,CPU_USAGE", nil
 			}

@@ -322,8 +322,13 @@ func (i *InfluxDB) CreateMeasurement(vars map[string]string) error {
 
 	timeM = timeM.Local().Add(-3 * time.Hour)
 
+	f, err := strconv.ParseFloat(value, 64)
+	if err != nil {
+		return err
+	}
+
 	point := influxdb2.NewPointWithMeasurement(sensorid).
-		AddField("value", value).
+		AddField("value", f).
 		AddTag("deviceid", deviceid).
 		SetTime(timeM)
 

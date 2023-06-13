@@ -9,17 +9,19 @@ in the measurement, each output provides a timestamp so as to check when the
 measurement took place exactly. All the outputs are written simultaneously.
 The project uses Cobra for the CLI interactions, Mux for the request router, Mockery for mocking, 
 Ginkgo and Gomega for the unit tests, PostgreSQL for
-keeping the different devices and sensors and InfluxDB for the measurements and Docker for
-building and running the database images.
+keeping the different devices and sensors, InfluxDB for the measurements and Docker for
+building and running the database images. Docker is used for running the Grafana tool,
+used for monitoring the different sensors output data and sending alert notifications if some
+sensors values are out of the predefined boundaries.
+For testing purposes, MailDev is added to the Grafana configuration file- it is used for 
+receiving the email alert notifications.
 ## How to build and run the project
 After setting the Go environment and pulling the repository:  
 1) build your binary files- run `$ go build` in '~/cli' and in '\~/server' directories  
-2) build your database Docker images:  
-run `$ docker build -t influxdb .` in '~/influxdb' and `$ docker build -t postgresql .` in '\~/postgresql'  
-3) run your databases on the respective ports  
-`$ docker run -p 5432:5432 postgresql` and `$ docker run -p 8086:8086 influxdb`  
-4) run your server- `$ ./sensor` in the '~/server' dir  
-5) To start your CLI app with the desired commands run `$ ./sensor` in the '~/cli' dir.
+2) build your PostgreSQL Docker image and run the containers needed:  
+run `$ docker build -t postgresql .` in '\~/postgresql' and then `$ docker-compose up -d` in '~/grafana'  
+3) run your server- `$ ./sensor` in the '~/server' dir  
+4) To start your CLI app with the desired commands run `$ ./sensor` in the '~/cli' dir.
 ## How to use the given commands  
 <li><b>--unit</b> is used to specify your unit preference- C/F (Celsius/Fahrenheit). It is used just for the CPU_TEMP sensor group</li>
 <li><b>--format</b> is used to specify the preferred output type- JSON/YAML</li>

@@ -18,9 +18,43 @@ services:
       - DOCKER_INFLUXDB_INIT_BUCKET=sensors-bucket
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mytoken
 
+  postgresql:
+    image: postgresql
+    build:
+      context: .
+      dockerfile: ../postgresql/Dockerfile
+    networks: 
+      - monitoring
+    ports:
+      - 5432:5432
+
   grafana:
-    image: grafana/grafana:9.0.4
+    image: grafana/grafana:9.4.12
+    environment:
+      - GF_PATHS_PROVISIONING=/usr/share/grafana/conf/provisioning
     ports:
       - 3000:3000
     networks:
       - monitoring
+    volumes:
+      - ./datasources:/usr/share/grafana/conf/provisioning/datasources
+      - ./dashboards:/usr/share/grafana/conf/provisioning/dashboards
+      - ./dashboard-models:/var/lib/grafana/dashboard-models
+      - ./alerting:/usr/share/grafana/conf/provisioning/alerting
+      - ./config/grafana.ini:/etc/grafana/grafana.ini
+
+  mailer:
+      image: maildev/maildev    
+      volumes:
+        - ./:/home/maildev:rw
+      environment:
+        - MAILDEV_MAIL_DIRECTORY=/home/maildev
+      networks:
+        - monitoring
+      ports:
+        - 1080:1080
+        - 1025:1025
+
+volumes:
+  grafana-data:
+    external: true
