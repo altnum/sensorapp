@@ -13,7 +13,7 @@ keeping the different devices and sensors, InfluxDB for the measurements and Doc
 building and running the database images. Docker is used for running the Grafana tool,
 used for monitoring the different sensors output data and sending alert notifications if some
 sensors values are out of the predefined boundaries.
-For testing purposes, MailDev is added to the Grafana configuration file- it is used for 
+For testing purposes, MailDev is added to the "docker-compose" configuration file- it is used for 
 receiving the email alert notifications.
 ## How to build and run the project
 After setting the Go environment and pulling the repository:  
