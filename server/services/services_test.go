@@ -544,7 +544,7 @@ var _ = Describe("Testing different services functionality", func() {
 			vars["endTime"] = "1"
 			router.HandleFunc("/sensorsCorrelationCoefficient", measurementService.SensorCorrelation).Methods("GET")
 			It("given no error while retrieving the Pearsons's coeffiecient then return result", func() {
-				influxdb.On("GetPearsonsCoefficient", context, vars).Return(float64(0), nil)
+				influxdb.On("GetPearsonsCoefficient", context, vars).Return(models.SensorsCorrelation{}, nil)
 
 				respRec := httptest.NewRecorder()
 				req := httptest.NewRequest("GET", "http://localhost:8080/sensorsCorrelationCoefficient?deviceid1=1&sensorid1=1&deviceid2=1&sensorid2=1&startTime=1&endTime=1", nil)

@@ -364,7 +364,7 @@ var _ = Describe("Testing different databases", func() {
 				coefficient, err := influxdb.GetPearsonsCoefficient(context, vars)
 
 				Expect(err).To(BeNil())
-				Expect(coefficient).To(BeNumerically("==", 0))
+				Expect(coefficient.Correlation).To(BeNumerically("==", 0))
 			})
 		})
 

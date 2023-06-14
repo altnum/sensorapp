@@ -12,3 +12,11 @@ type AverageMeasurement struct {
 	Sensor_id int64  `json:"sensorid"`
 	Average   string `json:"average"`
 }
+
+type SensorsCorrelation struct {
+	Device_id1  int     `json:"deviceid1"`
+	Sensor_id1  int     `json:"sensorid1"`
+	Device_id2  int     `json:"deviceid2"`
+	Sensor_id2  int     `json:"sensorid2"`
+	Correlation float64 `json:"correlation"`
+}

@@ -27,11 +27,27 @@ services:
       - monitoring
     ports:
       - 5432:5432
+    healthcheck:
+      test: pg_isready -U postgres
+
+  server:
+    image: server
+    build:
+      context: .
+      dockerfile: ../server/Dockerfile
+    networks: 
+      - monitoring
+    ports:
+      - 8080:8080
+    depends_on: 
+      postgresql:
+        condition: service_healthy
 
   grafana:
     image: grafana/grafana:9.4.12
     environment:
       - GF_PATHS_PROVISIONING=/usr/share/grafana/conf/provisioning
+      - GF_INSTALL_PLUGINS=marcusolsson-json-datasource
     ports:
       - 3000:3000
     networks:

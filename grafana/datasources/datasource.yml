@@ -35,3 +35,25 @@ datasources:
       connMaxLifetime: 14400
       postgresVersion: 903
       timescaledb: false
+  - name: Sensor Average
+    type: marcusolsson-json-datasource
+    access: proxy
+    uid: vKYDYe_Vz
+    orgId: 1
+    url: http://server:8080/sensorAverageValue
+    isDefault: false
+    version: 1
+    editable: true
+    jsonData:
+      queryParams: "deviceid=1&sensorid=6&startTime=2023-06-11 13:04:05&endTime=2023-08-20 18:08:05"
+  - name: Sensors Correlation
+    type: marcusolsson-json-datasource
+    access: proxy
+    uid: adLdUe_Vk
+    orgId: 1
+    url: http://server:8080/sensorsCorrelationCoefficient
+    isDefault: false
+    version: 1
+    editable: true
+    jsonData:
+      queryParams: "startTime=2023-06-11 13:04:05&endTime=2023-08-20 18:45:05&deviceid1=1&deviceid2=1&sensorid1=1&sensorid2=2"

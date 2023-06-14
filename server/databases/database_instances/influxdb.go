@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	inHost   = "localhost"
+	inHost   = "influxdb"
 	inPort   = "8086"
 	myOrg    = "sensor-org"
 	myBucket = "sensors-bucket"
@@ -26,7 +26,7 @@ type IInfluxDB interface {
 	IDB
 	GetAllMeasurements(context.Context) ([]*models.Measurements, error)
 	GetSensorAverage(context.Context, map[string]string) (models.AverageMeasurement, error)
-	GetPearsonsCoefficient(context.Context, map[string]string) (float64, error)
+	GetPearsonsCoefficient(context.Context, map[string]string) (models.SensorsCorrelation, error)
 	GetMeasurementById(context.Context, string) ([]*models.Measurements, error)
 	CreateMeasurement(map[string]string) error
 	GetDB() influxdb2.Client
@@ -193,39 +193,56 @@ func (i *InfluxDB) CalculateAverageValue(measures []*models.Measurements) (model
 	return averageMeasurement, nil
 }
 
-func (i *InfluxDB) GetPearsonsCoefficient(context context.Context, args map[string]string) (float64, error) {
+func (i *InfluxDB) GetPearsonsCoefficient(context context.Context, args map[string]string) (models.SensorsCorrelation, error) {
+	deviceid1, err := strconv.Atoi(args["deviceid1"])
+	if err != nil {
+		return models.SensorsCorrelation{}, err
+	}
+	deviceid2, err := strconv.Atoi(args["deviceid2"])
+	if err != nil {
+		return models.SensorsCorrelation{}, err
+	}
+	sensorid1, err := strconv.Atoi(args["sensorid1"])
+	if err != nil {
+		return models.SensorsCorrelation{}, err
+	}
+	sensorid2, err := strconv.Atoi(args["sensorid2"])
+	if err != nil {
+		return models.SensorsCorrelation{}, err
+	}
 	query1, err := i.GetMeasurementsQueryInSpecificTimeFrame(args["startTime"], args["endTime"], args["deviceid1"], args["sensorid1"])
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	query2, err := i.GetMeasurementsQueryInSpecificTimeFrame(args["startTime"], args["endTime"], args["deviceid2"], args["sensorid2"])
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	measures1, err := i.GetMeasuresFromQuery(context, query1)
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	measures2, err := i.GetMeasuresFromQuery(context, query2)
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	measures1Values, measures2Values, err := i.GetValuesDataFromMeasurements(measures1, measures2)
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	covariance, err := i.Covariance(measures1Values, measures2Values)
 	if err != nil {
-		return 0, err
+		return models.SensorsCorrelation{}, err
 	}
 
 	coefficient := i.CalculatePearsonsCoefficient(covariance, measures1Values, measures2Values)
-	return coefficient, nil
+
+	return models.SensorsCorrelation{Device_id1: deviceid1, Device_id2: deviceid2, Sensor_id1: sensorid1, Sensor_id2: sensorid2, Correlation: coefficient}, nil
 }
 
 func (i *InfluxDB) GetValuesDataFromMeasurements(data1 []*models.Measurements, data2 []*models.Measurements) ([]float64, []float64, error) {
