@@ -77,7 +77,7 @@ func (p *Writer) StartWriting(serverURL string, measurement systeminfo.Measureme
 }
 
 func (p *Writer) writeToCsvFile(measurement systeminfo.Measurement, writer *csv.Writer) error {
-	toWrite := []string{measurement.MeasuredAt, measurement.DeviceId, measurement.SensorId}
+	toWrite := []string{measurement.MeasuredAt, measurement.DeviceId, measurement.SensorId, fmt.Sprintf("%f", measurement.Value)}
 	err := writer.Write(toWrite)
 	if err != nil {
 		return err
