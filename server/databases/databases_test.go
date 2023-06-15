@@ -22,6 +22,8 @@ var _ = Describe("Databases functionality", func() {
 
 	Context("ConnectDatabases", func() {
 		context := context.Background()
+		InHost = "localhost"
+		PgHost = "localhost"
 		It("given a database, when trying to connect to it, then return no error", func() {
 			var dbs []IDB
 			dbs = append(dbs, &PostgreDB{}, &InfluxDB{})

@@ -15,6 +15,7 @@ import (
 var _ = Describe("Testing routes addresses", func() {
 	Context("Devices routes", func() {
 		context := context.Background()
+		PgHost = "localhost"
 		pgdb := &PostgreDB{}
 		pgdb.Open(context)
 		router := mux.NewRouter()
@@ -131,6 +132,8 @@ var _ = Describe("Testing routes addresses", func() {
 
 	Context("Measurements routes", func() {
 		context := context.Background()
+		PgHost = "localhost"
+		InHost = "localhost"
 		pgdb := &PostgreDB{}
 		influxdb := &InfluxDB{}
 		pgdb.Open(context)

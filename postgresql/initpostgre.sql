@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS device ( id serial PRIMARY KEY, name text NOT NULL, description text NOT NULL);
 CREATE TABLE IF NOT EXISTS sensors ( id serial PRIMARY KEY, deviceid integer NOT NULL, name character varying(100) NOT NULL, description text NOT NULL, unit character varying(12) NOT NULL, FOREIGN KEY (deviceid) REFERENCES device (id));
 INSERT INTO device (name, description) VALUES ('device_name', 'my laptop device');
-INSERT INTO sensors (deviceid, name, description, unit) VALUES (1, 'cpuTempCelsius', 'Measures CPU temp Celsius', 'F');
+INSERT INTO sensors (deviceid, name, description, unit) VALUES (1, 'cpuTempCelsius', 'Measures CPU temp Celsius', 'C');
 INSERT INTO sensors (deviceid, name, description, unit) VALUES (1, 'cpuUsagePercent', 'Measures CPU usage percent', '%');
 INSERT INTO sensors (deviceid, name, description, unit) VALUES (1, 'cpuCoresCount', 'Measures CPU cores count', 'count');
 INSERT INTO sensors (deviceid, name, description, unit) VALUES (1, 'cpuFrequency', 'Measures CPU frequency', 'GHz');

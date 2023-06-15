@@ -10,7 +10,6 @@ import (
 )
 
 const (
-	pgHost           = "postgresql"
 	pgPort           = "5432"
 	pgUser           = "postgres"
 	pgPassword       = "1234"
@@ -18,6 +17,7 @@ const (
 	columnsWithAlias = true
 )
 
+var PgHost = "postgresql"
 var postgreConnect = sqlx.Connect
 
 type IPostgreDB interface {
@@ -47,7 +47,7 @@ func (p *PostgreDB) GetInfluxInstance() IInfluxDB {
 }
 
 func (p *PostgreDB) Open(context context.Context) error {
-	psqlconn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", pgHost, pgPort, pgUser, pgPassword, pgDbname)
+	psqlconn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", PgHost, pgPort, pgUser, pgPassword, pgDbname)
 	pgdb, err := postgreConnect("postgres", psqlconn)
 	if err != nil {
 		return err

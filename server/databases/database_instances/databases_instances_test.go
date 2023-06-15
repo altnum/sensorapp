@@ -16,6 +16,7 @@ import (
 var _ = Describe("Testing different databases", func() {
 	context := context.Background()
 	Context("PostgreSQL", func() {
+		PgHost = "localhost"
 		Context("Open", func() {
 			var pgdb IDB
 			BeforeEach(func() {
@@ -249,6 +250,7 @@ var _ = Describe("Testing different databases", func() {
 	})
 
 	Context("InfluxDB", func() {
+		InHost = "localhost"
 		influxdb := &InfluxDB{}
 		influxdb.Open(context)
 

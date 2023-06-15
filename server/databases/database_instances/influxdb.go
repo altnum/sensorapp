@@ -14,12 +14,12 @@ import (
 )
 
 const (
-	inHost   = "influxdb"
 	inPort   = "8086"
 	myOrg    = "sensor-org"
 	myBucket = "sensors-bucket"
 )
 
+var InHost = "influxdb"
 var parseInt = strconv.ParseInt
 
 type IInfluxDB interface {
@@ -47,7 +47,7 @@ func (i *InfluxDB) GetInfluxInstance() IInfluxDB {
 }
 
 func (i *InfluxDB) Open(context context.Context) error {
-	i.DB = influxdb2.NewClient("http://"+inHost+":"+inPort, "mytoken")
+	i.DB = influxdb2.NewClient("http://"+InHost+":"+inPort, "mytoken")
 	i.WriteAPI = i.DB.WriteAPI(myOrg, myBucket)
 	i.QueryApi = i.DB.QueryAPI(myOrg)
 	health, err := i.DB.Health(context)
