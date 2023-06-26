@@ -18,9 +18,9 @@ For testing purposes, MailDev is added to the "docker-compose" configuration fil
 receiving the email alert notifications.
 ## How to build and run the project
 After setting the Go environment and pulling the repository:  
-1) build your binary files- run `$ go build` in '~/cli' and in '\~/server' directories  
+1) build your binary files- run `$ go build` in '~/cli' directory  
 2) build your "PostgreSQL" and "server" Docker images and run the containers needed:  
-run `$ docker build -t postgresql .` in '\~/postgresql' `$ docker build -t server .` in '\~/server' and then `$ docker-compose up -d` in '~/grafana'  
+run `$ docker build -t postgresql .` in '\~/postgresql' `$ docker build -t server .` in '\~/server' and then `$ docker-compose up -d` in '~/containers'  
 3) To start your CLI app with the desired commands run `$ ./sensor` in the '~/cli' dir.
 ## How to use the given commands  
 <li><b>--unit</b> is used to specify your unit preference- C/F (Celsius/Fahrenheit). It is used just for the CPU_TEMP sensor group</li>

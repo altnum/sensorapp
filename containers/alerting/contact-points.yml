@@ -6,7 +6,7 @@ contactPoints:
   # <int> organization ID, default = 1
   - orgId: 1
     # <string, required> name of the contact point
-    name: cp_1
+    name: MailDev
     receivers:
       # <string, required> unique identifier for the receiver
       - uid: __expr__
