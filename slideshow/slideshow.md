@@ -37,8 +37,7 @@ class: minimal
 ## Демо
 
 - CLI
-- CLI + server
-- CLI + Grafana
+- CLI + services
 
 ---
 
