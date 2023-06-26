@@ -17,11 +17,11 @@ class: minimal
 
 # Sensor App
 
-Diplom
+Информационна система за мониторинг на компютри
 
 ---
 
-## Used technologies
+## Използвани технологии
 
 - Cobra
 - Mux
@@ -34,7 +34,7 @@ Diplom
 
 ---
 
-## Demo
+## Демо
 
 - CLI
 - CLI + server
@@ -42,7 +42,7 @@ Diplom
 
 ---
 
-## Components Overview
+## Компоненти
 
 ---
 
@@ -52,6 +52,3 @@ Diplom
 
 ![](deployment_diagram.png)
 
----
-
-## Code Overview
