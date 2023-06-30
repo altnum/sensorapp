@@ -41,11 +41,7 @@ class: minimal
 
 ---
 
-## Компоненти
-
----
-
-![](sensor_component_diagram.png)
+## Deployment диаграма
 
 ---
 
